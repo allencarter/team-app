@@ -119,7 +119,7 @@
       &-grid {
         &-item {
           margin-bottom:20px;
-          @include grid-layout(100px);
+          @include grid-layout(100px 300px);
           @include device(tablet) {
             display: block;
           }
