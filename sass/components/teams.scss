@@ -145,7 +145,7 @@
             }
           }
           div { // icons are stored in this div in html
-            @include flex-layout(row, left, center);
+            display: inline;
           }
         }
 
