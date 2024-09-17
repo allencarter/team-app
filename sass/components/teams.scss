@@ -11,9 +11,8 @@
   justify-content: center;
   button {
     position:absolute;
-    left:0;
+    right:0;
     bottom:0;
-    width:100%;
     background: $primary;
     border:none;
     padding:10px;
@@ -24,7 +23,6 @@
     }
     @include device(tablet) {
      position:relative;
-     width:auto;
     }
   }
 
@@ -102,6 +100,8 @@
       height: 60px;
       border: solid 1.3px $primary;
       transition: 0.5s ease height;
+      display:grid; 
+      align-items: center; // now that's just flat out cheating
       @include device(tablet) {
         max-width: 100%;
         border:none;
