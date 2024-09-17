@@ -42,9 +42,17 @@
   &-name {
     &-left {
       padding-right: 200px;
+      padding-left: 6px;
+      @include device(tablet) {
+        padding-left: 0;
+      }
     }
     &-right {
       padding-left:200px;
+      padding-right: 6px;
+      @include device(tablet) {
+        padding-right: 0;
+      }
     }
   }
   }
@@ -62,7 +70,7 @@
       position: relative;
       left: 4px;
       display: inline-block;
-      max-width: 157.8px;
+      max-width: 157.8px - 20;
       border: solid 1px $primary;
       border-radius:50%;
       -moz-border-radius:50%;
