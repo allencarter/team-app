@@ -7,7 +7,7 @@ This is a simple app displays members of the team. Which is used for the Allenca
 
 ## Webpack
 
-`npm start` to run webpack watch
+`npm run watch` to run webpack watch
 
 When in VSC, right click on index.html file to Open Live Server. Liver Server extension is required.
 
