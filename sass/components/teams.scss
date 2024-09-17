@@ -1,0 +1,179 @@
+@import '../vars/color.scss';
+@import '../vars/fonts.scss';
+
+// Mixins
+@import '../mixins/layout.scss';
+@import '../mixins/media-queries.scss';
+
+
+.teams {
+  display: flex;
+  justify-content: center;
+  button {
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:100%;
+    background: $primary;
+    border:none;
+    padding:10px;
+    color:white;
+    cursor: pointer;
+    &:hover {
+      background: $btnHover;
+    }
+    @include device(tablet) {
+     position:relative;
+     width:auto;
+    }
+  }
+
+  &-title {
+  display: block;
+  // width:200px;
+    color: $primary;
+  border-bottom: 1px solid blue;
+  padding-bottom: 6px;
+  top: 26px;
+  z-index: -1;
+  @include device(tablet) {
+    border:none;
+  }
+  &-name {
+    &-left {
+      padding-right: 200px;
+    }
+    &-right {
+      padding-left:200px;
+    }
+  }
+  }
+  &-item {
+    @include grid-layout(auto auto auto);
+    align-items: flex-start;
+    margin-bottom:100px;
+    @include device(tablet) {
+      display: block;
+      border: 0.5px solid $primary;
+      padding: 20px;
+      margin-bottom:50px;
+    }
+    &-image {
+      position: relative;
+      left: 4px;
+      display: inline-block;
+      max-width: 157.8px;
+      border: solid 1px $primary;
+      border-radius:50%;
+      -moz-border-radius:50%;
+      -webkit-border-radius:50%;
+      &-right {
+      left:-5px;
+      }
+    }
+    a {
+      margin-right:6px;
+      color:black;
+      text-decoration: underline;
+      &:hover {
+        color:$secondary;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      &:last-child {
+        margin-right:0;
+      }
+    }
+    &-label {
+      position: relative;
+      font-family: $roboto;
+      font-size:15px;
+      color: $primary;
+      max-width: 500px; // was width: 500px
+      padding: 30px;
+      height: 60px;
+      border: solid 1.3px $primary;
+      transition: 0.5s ease height;
+      @include device(tablet) {
+        max-width: 100%;
+        border:none;
+        padding:0;
+      }
+      span {
+        font-weight: 600;
+        font-size:18px;
+        @include device(tablet) {
+          font-size:15px;
+          margin-right: 4px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+    &-content {
+      color:black;
+      display: none;
+      padding-top: 30px;
+      margin-top: 30px;
+      border-top: 0.5px solid $primary;
+      font-size:13px;
+      &-grid {
+        &-item {
+          margin-bottom:20px;
+          @include grid-layout(100px);
+          @include device(tablet) {
+            display: block;
+          }
+          h3 {
+           display: inline-block;
+            margin:0;
+          padding:0;
+          }
+          img {
+            width: 100%;
+            margin-right: 6px;
+            max-width: 20px;
+            &:last-child {
+              margin-right:0;
+            }
+          }
+          div { // icons are stored in this div in html
+            @include flex-layout(row, left, center);
+          }
+        }
+
+      }
+    }
+  }
+
+
+}
+.teams-height {
+  height:350px;
+  @include device(tablet) {
+    height: 550px;
+  }
+}
+
+.show {
+  display: block !important;
+}
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 1s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.text-right {
+  text-align: right;
+}

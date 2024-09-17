@@ -1,0 +1,53 @@
+@import './vars/fonts.scss';
+@import './vars/color.scss';
+
+// Components
+@import './components/teams.scss'; 
+
+// Mixins
+@import './mixins/media-queries.scss';
+
+html, body {
+  padding:0;
+  margin:0;
+  font-family: $bodyText;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 15px;
+  @media screen and (max-width: 780px) {
+    font-size: 13.5px;
+    line-height: 23px;
+  }
+}
+
+.break {
+  display: block;
+  margin:100px 0;
+  @include device(tablet) {
+    margin: 50px 0;
+  }
+ @include device(mobile) {
+    margin: 30px 0;
+  }
+}
+
+
+.my-container {
+  max-width: 1280px;
+  //max-width:100%;
+  margin: 0 auto;
+  @media screen and (max-width: 1380px) {
+    // width: 100%;
+    padding: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    
+  }
+  &-small {
+    max-width: 760px;
+  }
+  &-medium {
+    max-width: 960px;
+  }
+}
