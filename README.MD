@@ -2,8 +2,11 @@
 # TEAM APP For Allencarter.pro
 
 ## Description
-This is a simple app displays members of the team. Which is used for the Allencarter.pro website teams page.
+JavaScript to display members of the team details by clicking on the open and close buttons. It is for the ac-team-cards plugin for WordPress.
 
+| Version | App last patch |
+| ------- | ---------------- |
+| 1.0.1        | 07 Oct 2024 |
 
 ## Webpack
 
