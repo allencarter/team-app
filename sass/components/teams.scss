@@ -5,24 +5,39 @@
 @import '../mixins/layout.scss';
 @import '../mixins/media-queries.scss';
 
+.teams:first-child {
+  margin-top:100px;
+  @include device(tabletLarge) {
+    margin-top:0;
+  }
+}
+.teams:last-child {
+  margin-bottom:50px;
+  @include device(tabletLarge) {
+    margin-bottom:0;
+  }
+}
 
 .teams {
   display: flex;
   justify-content: center;
+
   button {
-    position:absolute;
-    right:0;
-    bottom:0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-left: auto;
     background: $primary;
     border:none;
     padding:10px;
     color:white;
+    font-size: 13px;
     cursor: pointer;
     &:hover {
       background: $btnHover;
     }
-    @include device(tablet) {
-     position:relative;
+    @include device(tabletLarge) {
+     left:0;
     }
   }
 
@@ -34,41 +49,52 @@
   padding-bottom: 6px;
   top: 26px;
   z-index: -1;
-  @include device(tablet) {
+  @include device(tabletLarge) {
     border:none;
   }
   &-name {
     &-left {
       padding-right: 200px;
       padding-left: 6px;
-      @include device(tablet) {
+      @include device(tabletLarge) {
         padding-left: 0;
+        padding-right:0
       }
     }
     &-right {
       padding-left:200px;
       padding-right: 6px;
-      @include device(tablet) {
+      @include device(tabletLarge) {
         padding-right: 0;
+        padding-left:0;
       }
     }
   }
   }
   &-item {
-    @include grid-layout(auto auto auto);
+    @include grid-layout(auto 400px auto);
+    @media screen and (max-width: 950px) {
+      @include grid-layout(auto auto auto);
+    }
     align-items: flex-start;
     margin-bottom:100px;
-    @include device(tablet) {
-      display: block;
+    @include device(tabletLarge) {
+      display: flex;
+      align-items: center;
+      flex-flow: column;
       border: 0.5px solid $primary;
       padding: 20px;
       margin-bottom:50px;
+      width: 100%;
     }
     &-image {
       position: relative;
       left: 4px;
       display: inline-block;
       max-width: 157.8px - 20;
+      @include device(mobile) {
+        max-width:100px;
+      }
       border: solid 1px $primary;
       border-radius:50%;
       -moz-border-radius:50%;
@@ -97,12 +123,10 @@
       color: $primary;
       max-width: 500px; // was width: 500px
       padding: 30px;
-      height: 60px;
+      // height: 8rem;
       border: solid 1.3px $primary;
-      transition: 0.5s ease height;
-      display:grid; 
-      align-items: center; // now that's just flat out cheating
-      @include device(tablet) {
+      // transition: 0.5s ease height;
+      @include device(tabletLarge) {
         max-width: 100%;
         border:none;
         padding:0;
@@ -110,7 +134,9 @@
       span {
         font-weight: 600;
         font-size:18px;
-        @include device(tablet) {
+        padding-bottom: 30px;
+        display: block;
+        @include device(tabletLarge) {
           font-size:15px;
           margin-right: 4px;
           margin-bottom: 10px;
@@ -121,20 +147,20 @@
       color:black;
       display: none;
       padding-top: 30px;
-      margin-top: 30px;
       border-top: 0.5px solid $primary;
       font-size:13px;
       &-grid {
         &-item {
           margin-bottom:20px;
           @include grid-layout(100px 300px);
-          @include device(tablet) {
+          @include device(tabletLarge) {
             display: block;
           }
           h3 {
            display: inline-block;
             margin:0;
           padding:0;
+          font-size:inherit;
           }
           img {
             width: 100%;
@@ -151,15 +177,31 @@
 
       }
     }
+    &-right {
+      @include device(tabletLarge) {
+        display: flex;
+        flex-flow: column-reverse;
+        align-items: center;
+      }
+    }
   }
 
 
 }
 .teams-height {
-  height:400px;
-  @include device(tablet) {
-    height: 550px;
-  }
+  height:100%;
+  animation-name: height;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 0.2s;
+}
+@keyframes height {
+	0% {
+		height: 0;
+	}
+	100% {
+		height: 100% ;
+	}
 }
 
 .show {
